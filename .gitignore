@@ -1,3 +1,6 @@
+## luatexja-ruby
+*.ltjruby
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

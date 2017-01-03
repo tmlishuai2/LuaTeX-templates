@@ -1,0 +1,136 @@
+% !TEX encoding = UTF-8
+% !TEX program = lualatex
+
+% author: essethon
+% email: xcalcor@gmail.com
+% ----------------------------
+
+\documentclass[a4paper]{scrartcl}
+
+% Tikz & graphics setting
+\usepackage{tikz}
+\graphicspath{{fig/}}
+
+
+\usepackage{amssymb}
+\usepackage{amsmath,bm,mathrsfs}
+% \usepackage{boxedminipage}
+% \usepackage{cases}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage[font=small]{caption}
+  \renewcommand{\figurename}{图}
+  \renewcommand{\tablename}{表}
+\usepackage{colortbl}
+\usepackage{enumitem} % custom enumerate environment
+\usepackage{float}
+  \usepackage[section]{placeins} % to stop floats at section boundaries
+\usepackage{fontspec}
+  \setmainfont{Linux Libertine}[
+    BoldFont = Linux Libertine Bold,
+    ItalicFont = Linux Libertine Italic,
+    BoldItalicFont = Linux Libertine Bold Italic
+  ]
+  \setsansfont{Linux Biolinum}[
+    BoldFont = Linux Biolinum Bold,
+    ItalicFont = Linux Biolinum Bold
+  ]
+  % \setmonofont{Droid Sans Mono for Powerline}
+\usepackage{framed}
+\usepackage{geometry}
+\geometry{left=1.8cm, right=1.8cm, top=2cm, bottom=2.5cm}
+\usepackage{graphicx}
+\usepackage{hologo}
+\usepackage{hyperref}
+  \hypersetup{colorlinks=false, pdfborder=0 0 0}
+\usepackage{indentfirst}
+\usepackage{latexsym}
+\usepackage{listings}
+  \lstset{language=Matlab,
+    basicstyle=\small\ttfamily, % use mono font
+    commentstyle=\color{gray},
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\small\color{gray},
+    showspaces=false,
+    stepnumber=5,
+  }
+\usepackage{multicol}
+\usepackage{multido} % Cycle
+\usepackage{pgf}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{siunitx}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+  \setmainjfont[BoldFont = FandolSong-Bold]{FandolSong-Regular}
+  \setsansjfont[BoldFont = FandolHei-Bold]{FandolHei-Regular}
+  % \setmonojfont{WenQuanYi Micro Hei Mono}
+  \newjfontface\hei{FandolHei-Regular}
+  \newjfontface\Hei{FandolHei-Bold}
+  \newjfontface\Song{FandolSong-Bold}
+  \newjfontface\fang{FandolFang-Regular}
+  \newjfontface\kai{FandolKai-Regular}
+
+\usepackage{luatexja-ruby}
+
+% Indent settings
+\setlength\parindent{2em}
+
+
+% Title
+\title{中文 ARTICLE}
+\author{essethon}
+\begin{document}
+\maketitle
+% \begin{multicols}{2}
+
+本文档旨在积累一部分 \LaTeX{} 代码（尤其是 Preamble 部分），以便日后写作业、写文档直接取用。此前（截至 2016 年底），我一直使用 \Hologo{XeLaTeX} 引擎与 \verb|xeCJK| 宏包来解决中文排版问题，因为某些理由，打算从今天起迁移到 \Hologo{LuaLaTeX}. 
+
+\section{基本环境}\label{sec:ji_ben_huan_jing_}
+我习惯使用 \texttt{latexmk} 来编译生成文档，从本文档起使用的引擎是 \Hologo{LuaLaTeX}. \Hologo{LuaLaTeX} 原生支持中文，使用了 \Hologo{LuaTeX}-ja 之后可能更加易用。
+
+个人平时习惯使用的 \LaTeX{} 发行版是 \TeX{} Live. 英文字体选择了开源字体 \texttt{Linux Libertine}.
+  
+\section{C/J 字体}\label{sec:zhong_wen_zi_ti_}
+\Hologo{LuaTeX}-ja 提供了 \texttt{luatexja-fontspec} 宏包，对 \texttt{fontspec} 宏包进行了封装，藉此提供了一些与 \texttt{fontspec} 类似的字体设定命令。如改变局部字体的 \verb|\jfontspec| 命令及本文档在 Preamble 部分用到的一些命令。
+\subsection{简体中文}
+本文档的默认中文字体和中文无衬线字体分别分别采用了 \verb|FandolSong| 和 \verb|FandolHei| 字体及它们对应的\textbf{粗体}。\verb|Fandol| 系列字体由马起园等人整理开发。对于 \verb|Arch Linux|, 可以从 \verb|AUR| 中安装 \verb|otf-fandol| 包来获得这些字体，该软件包包含了 {\hei{黑体}（及{\Hei{粗体}}）}、宋体（及{\Song{粗体}}）、{\fang{仿宋}}和{\kai{楷体}}，基本能够满足日常中文写作对字体的需求。
+
+\begin{table}[htpb]
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \multicolumn{1}{c}{\textbf{字体名}} & \multicolumn{1}{c}{\textbf{文件名}} & \multicolumn{1}{c}{\textbf{样例}} \\
+    \midrule
+    FandolSong-Regular & \texttt{FandolSong-Regular.otf} & {我能吞下玻璃而不伤身体} \\
+    FandolSong-Bold & \texttt{FandolSong-Bold.otf} & {\Song{我能吞下玻璃而不伤身体}} \\
+    FandolHei-Regular & \texttt{FandolHei-Regular.otf} & {\hei{我能吞下玻璃而不伤身体}} \\
+    FandolHei-Bold & \texttt{FandolHei-Bold.otf} & {\Hei{我能吞下玻璃而不伤身体}} \\
+    FandolFang-Regular & \texttt{FandolFang-Regular.otf} & {\fang{我能吞下玻璃而不伤身体}}\\
+    FandolKai-Regular & \texttt{FandolKai-Regular} & {\kai{我能吞下玻璃而不伤身体}}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{日本語}
+\LaTeX{} で日本語を書きましょう！
+\section{数学环境}\label{sec:shu_xue_huan_jing_}
+
+\section{图表}\label{sec:tu_biao_}
+
+\section{代码引用}\label{sec:dai_ma_yin_yong_}
+
+\section{切换到 \Hologo{LuaTeX} 的理由}\label{sec:qie_huan_dao_luatex_de_li_you_}
+  \begin{itemize}
+    \item 就是想用 \Hologo{LuaTeX}-ja!
+    \item \ltjruby{君|の|名|は}{きみ||な|}
+  \end{itemize}
+  
+  
+
+\end{document}
