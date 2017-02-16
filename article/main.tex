@@ -26,14 +26,14 @@
 \usepackage{float}
   \usepackage[section]{placeins} % to stop floats at section boundaries
 \usepackage{fontspec}
-  \setmainfont{Linux Libertine}[
-    BoldFont = Linux Libertine Bold,
-    ItalicFont = Linux Libertine Italic,
-    BoldItalicFont = Linux Libertine Bold Italic
+  \setmainfont{Linux Libertine O}[
+    BoldFont = Linux Libertine O Bold,
+    ItalicFont = Linux Libertine O Italic,
+    BoldItalicFont = Linux Libertine O Bold Italic
   ]
-  \setsansfont{Linux Biolinum}[
-    BoldFont = Linux Biolinum Bold,
-    ItalicFont = Linux Biolinum Bold
+  \setsansfont{Linux Biolinum O}[
+    BoldFont = Linux Biolinum O Bold,
+    ItalicFont = Linux Biolinum O Bold
   ]
   % \setmonofont{Droid Sans Mono for Powerline}
 \usepackage{framed}
@@ -95,12 +95,7 @@
 
 本文档旨在积累一部分 \LaTeX{} 代码（尤其是 Preamble 部分），以便日后写作业、写文档直接取用。此前（截至 2016 年底），我一直使用 \Hologo{XeLaTeX} 引擎与 \verb|xeCJK| 宏包来解决中文排版问题，因为某些理由，打算从今天起迁移到 \Hologo{LuaLaTeX}. 
 
-\section{基本环境}\label{sec:ji_ben_huan_jing_}
-我习惯使用 \texttt{latexmk} 来编译生成文档，从本文档起使用的引擎是 \Hologo{LuaLaTeX}. \Hologo{LuaLaTeX} 原生支持中文，使用了 \Hologo{LuaTeX}-ja 之后可能更加易用。
-
-个人平时习惯使用的 \LaTeX{} 发行版是 \TeX{} Live. 英文字体选择了开源字体 \texttt{Linux Libertine}.
-  
-\section{C/J 字体}\label{sec:zhong_wen_zi_ti_}
+ \section{C/J 字体}\label{sec:zhong_wen_zi_ti_}
 \Hologo{LuaTeX}-ja 提供了 \texttt{luatexja-fontspec} 宏包，对 \texttt{fontspec} 宏包进行了封装，藉此提供了一些与 \texttt{fontspec} 类似的字体设定命令。如改变局部字体的 \verb|\jfontspec| 命令及本文档在 Preamble 部分用到的一些命令。
 \subsection{简体中文}
 本文档的默认中文字体和中文无衬线字体分别分别采用了 \verb|FandolSong| 和 \verb|FandolHei| 字体及它们对应的\textbf{粗体}。\verb|Fandol| 系列字体由马起园等人整理开发。对于 \verb|Arch Linux|, 可以从 \verb|AUR| 中安装 \verb|otf-fandol| 包来获得这些字体，该软件包包含了 {\hei{黑体}（及{\Hei{粗体}}）}、宋体（及{\Song{粗体}}）、{\fang{仿宋}}和{\kai{楷体}}，基本能够满足日常中文写作对字体的需求。
