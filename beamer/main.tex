@@ -1,0 +1,99 @@
+% !TEX encoding = UTF-8
+% !TEX program = lualatex
+
+% author: essethon
+% email: zhaoxf16@mails.tsinghua.edu.cn
+% ----------------------------
+
+\documentclass[slidestop,compress,mathserif]{beamer}
+
+% Tikz & graphics setting
+\usepackage{tikz}
+\graphicspath{{fig/}}
+
+\usepackage{amssymb}
+\usepackage{amsmath,bm}
+% \usepackage{boxedminipage}
+% \usepackage{cases}
+% \usepackage{enumitem} % custom enumerate environment
+\usepackage{float}
+  \usepackage[section]{placeins} % to stop floats at section boundaries
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage[font=footnotesize]{caption}
+  \renewcommand{\figurename}{\footnotesize 图}
+  \renewcommand{\tablename}{\footnotesize 表}
+\usepackage{colortbl}
+\usepackage{fontspec}
+  \setmainfont{ArialMT}[
+    BoldFont = Arial-BoldMT,
+    ItalicFont = Arial-ItalicMT,
+    BoldItalicFont = Arial-BoldItalicMT
+  ]
+%   \setsansfont{Linux Biolinum O}[
+%     BoldFont = Linux Biolinum O Bold,
+%     ItalicFont = Linux Biolinum O Bold
+%   ]
+  \setmonofont{ConsolasForPowerline}
+% \usepackage{framed}
+% \usepackage{geometry}
+% \geometry{left=1.8cm, right=1.8cm, top=2cm, bottom=1.5cm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+  \hypersetup{colorlinks=false, pdfborder=0 0 0, pdfencoding=auto}
+% \usepackage{indentfirst}
+\usepackage{latexsym}
+\usepackage{listingsutf8}
+  \lstset{basicstyle=\footnotesize\ttfamily,
+  breaklines=true,
+  commentstyle=\color{gray}
+}
+\usepackage{multicol}
+\usepackage{multido} % Cycle
+\usepackage{pgf}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{siunitx}
+\usepackage{tabularx}
+\usepackage{ulem}
+
+% LuaLaTeX CJ
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+  \setmainjfont[BoldFont = SourceHanSansSC-Bold]{SourceHanSansSC-Regular}
+  \setsansjfont[BoldFont = SourceHanSansSC-Bold]{SourceHanSansSC-Regular}
+\usepackage{luatexja-ruby}
+
+
+% Beamer settings
+\usetheme{THUBeamer}
+%\usecolortheme{rose}
+% \mode<presentation>
+\mode<presentation>
+\AtBeginSection[]
+{\begin{frame}{提纲}
+\tableofcontents[currentsection,currentsubsection]
+\end{frame}}
+
+% Indent settings
+% \setlength\parindent{2em}
+
+
+% Title
+\title{某学期某次小组会}
+\author{陈廷之}
+\institute{某研究所}
+\date{\today}
+
+% Beamer settings 2
+
+\begin{document}
+\begin{frame}
+  \titlepage{}
+\end{frame}
+\begin{frame}[t]{提纲}
+  \tableofcontents
+ \end{frame}
+
+\end{document}
